@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { RecoilRoot } from "recoil";
+import CharacterCounter from "./components/CharacterCounter";
+import TextField from "./components/TextField";
+import ListItem from "./components/ListItem";
+
+const styles = {
+  container: {
+    maxWidth: 600,
+    margin: "auto",
+  },
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RecoilRoot>
+        <header className="App-header">
+          <div style={styles.container}>
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1>State Management with Recoil</h1>
+            <CharacterCounter />
+            <TextField />
+            <ListItem />
+          </div>
+        </header>
+      </RecoilRoot>
     </div>
   );
 }

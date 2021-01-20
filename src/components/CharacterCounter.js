@@ -1,7 +1,7 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import { textFieldState } from "../state/textFieldState";
+import { useTextFieldState } from "../state/CustomHooks";
 export default function CharacterCounter() {
-  const count = useRecoilValue(textFieldState);
-  return <div>Character Count: {count.length}/140</div>;
+  const { text } = useTextFieldState();
+
+  return <div>Character Count: {text.length}/140</div>;
 }

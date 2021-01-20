@@ -1,16 +1,18 @@
-import { atom, selector } from "recoil";
+import { atom, useRecoilState } from "recoil";
 
 const textFieldState = atom({
   key: "textFieldState",
   default: "",
 });
 
-const textFieldSelector = selector({
-  key: "textFieldSelector",
-  get: ({ get }) => {
-    const text = get(textFieldState);
-    return text;
-  },
-});
+const useTextFieldState = () => {
+  const [text, setText] = useRecoilState(textFieldState);
 
-export { textFieldState, textFieldSelector };
+  const handleTextChange = (value) => {
+    setText(value);
+  };
+
+  return { text, setText, handleTextChange };
+};
+
+export { useTextFieldState };

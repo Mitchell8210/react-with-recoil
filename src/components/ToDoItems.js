@@ -1,6 +1,5 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import { listItemSelector } from "../state/ListItemState";
+import { useListItemState } from "../state/CustomHooks";
 import SingleItem from "./SingleItem";
 
 const styles = {
@@ -10,8 +9,8 @@ const styles = {
   },
 };
 
-export default function ListItem() {
-  const items = useRecoilValue(listItemSelector);
+export default function ToDoItems() {
+  const { items } = useListItemState();
 
   console.log("ITEMS", items);
   return (

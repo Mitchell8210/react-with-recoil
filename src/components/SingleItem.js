@@ -1,6 +1,6 @@
 import React from "react";
-import { listItemState } from "../state/ListItemState";
-import { useSetRecoilState } from "recoil";
+import { useListItemState } from "../state/CustomHooks";
+
 const styles = {
   item: {
     padding: 5,
@@ -20,10 +20,7 @@ const styles = {
 };
 
 export default function SingleItem({ text, index, id }) {
-  const setItems = useSetRecoilState(listItemState);
-  const deleteItem = (id) => {
-    setItems((items) => items.filter((item) => item.id !== id));
-  };
+  const { deleteItem } = useListItemState();
 
   return (
     <div style={styles.item}>

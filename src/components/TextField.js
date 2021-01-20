@@ -1,7 +1,5 @@
 import React from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { textFieldState } from "../state/textFieldState";
-import { listItemState } from "../state/ListItemState";
+import { useTextFieldState, useListItemState } from "../state/CustomHooks";
 
 const styles = {
   textArea: {
@@ -20,17 +18,13 @@ const styles = {
 };
 
 export default function TextField() {
-  const [text, setText] = useRecoilState(textFieldState);
-  const setItems = useSetRecoilState(listItemState);
+  const { createItem } = useListItemState();
+  const { text, setText } = useTextFieldState();
 
   const handleTextChange = (value) => {
     setText(value);
   };
-  const random = () => Math.floor(Math.random() * 10000000000);
-  const submitToDo = () => {
-    setItems((items) => [...items, { text, id: `${text}${random()}` }]);
-    setText("");
-  };
+
   return (
     <div>
       <label htmlFor="todo" />
@@ -43,7 +37,13 @@ export default function TextField() {
           maxLength={140}
           onChange={(e) => handleTextChange(e.target.value)}
         />
-        <button onClick={submitToDo} style={styles.button}>
+        <button
+          onClick={() => {
+            createItem(text);
+            setText("");
+          }}
+          style={styles.button}
+        >
           Create List Item
         </button>
       </div>

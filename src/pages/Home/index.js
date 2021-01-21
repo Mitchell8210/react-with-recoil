@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "../../logo.svg";
 import "../../App.css";
-import CharacterCounter from "../../components/CharacterCounter";
-import TextField from "../../components/TextField";
-import ToDoItems from "../../components/ToDoItems";
+// import CharacterCounter from "../../components/CharacterCounter";
+// import TextField from "../../components/TextField";
+// import ToDoItems from "../../components/ToDoItems";
 import styled from "styled-components";
 import { Link } from "@reach/router";
 
@@ -44,12 +44,17 @@ const Home = () => {
             Mitchell Rhoads
           </Linked>{" "}
         </h6>
-        <Link to="/about">
-          <Linked>New Paths to explore...</Linked>
-        </Link>
-        <CharacterCounter />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <Link to="my-lists">
+            <Linked>Get Started!</Linked>
+          </Link>
+          <Link to="/about">
+            <Linked>New Paths to explore...</Linked>
+          </Link>
+        </div>
+        {/* <CharacterCounter />
         <TextField />
-        <ToDoItems />
+        <ToDoItems /> */}
       </div>
     </header>
   );

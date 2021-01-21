@@ -12,7 +12,6 @@ const styles = {
 export default function ToDoItems() {
   const { items } = useListItemState();
 
-  console.log("ITEMS", items);
   return (
     <div style={styles.items}>
       <h1>To do list</h1>

@@ -5,6 +5,7 @@ import CharacterCounter from "../../components/CharacterCounter";
 import TextField from "../../components/TextField";
 import ToDoItems from "../../components/ToDoItems";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 
 const styles = {
   container: {
@@ -19,7 +20,7 @@ const styles = {
   },
 };
 
-const Link = styled.a`
+const Linked = styled.a`
   color: teal;
   transition: color 0.2s;
   &:hover {
@@ -35,14 +36,17 @@ const Home = () => {
         <h1>State Management with Recoil</h1>
         <h6>
           By:{" "}
-          <Link
+          <Linked
             rel="noreferrer"
             href="https://github.com/Mitchell8210/react-with-recoil"
             target="_blank"
           >
             Mitchell Rhoads
-          </Link>{" "}
+          </Linked>{" "}
         </h6>
+        <Link to="/about">
+          <Linked>New Paths to explore...</Linked>
+        </Link>
         <CharacterCounter />
         <TextField />
         <ToDoItems />

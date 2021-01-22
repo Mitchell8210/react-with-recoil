@@ -1,6 +1,7 @@
 import React from "react";
 import { useListState } from "../../../state/CustomHooks";
 import styled from "styled-components";
+import { useNavigate } from "@reach/router";
 
 const Container = styled.div`
   padding: 15;
@@ -33,11 +34,12 @@ const DeleteButton = styled.button`
 `;
 
 export default function ListItem(props) {
+  const navigate = useNavigate();
   const { item } = props;
   const { deleteList } = useListState();
 
   return (
-    <Container onClick={() => console.log("ID THAT WAS SELECTED", item.id)}>
+    <Container onClick={() => navigate(`/single-list/${item.id}`)}>
       <Text>{item.title}</Text>
       <DeleteButton onClick={() => deleteList(item.id)}>Delete</DeleteButton>
     </Container>

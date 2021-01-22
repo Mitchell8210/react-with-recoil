@@ -13,11 +13,12 @@ const useListItemState = () => {
   // state setter function
   const [items, setItems] = useRecoilState(listItemState);
 
-  const createItem = (text) => {
+  const createItem = (text, listId) => {
     const newItem = {
       text,
       id: `${text}${random()}`,
       completed: false,
+      inList: listId,
     };
     setItems((items) => [...items, newItem]);
   };

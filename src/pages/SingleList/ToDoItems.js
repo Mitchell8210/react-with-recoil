@@ -1,5 +1,4 @@
 import React from "react";
-import { useListItemState } from "../state/CustomHooks";
 import SingleItem from "./SingleItem";
 
 const styles = {
@@ -9,9 +8,7 @@ const styles = {
   },
 };
 
-export default function ToDoItems() {
-  const { items } = useListItemState();
-
+export default function ToDoItems({ items }) {
   return (
     <div style={styles.items}>
       <h1>To do list</h1>

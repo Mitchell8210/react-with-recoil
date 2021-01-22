@@ -1,5 +1,5 @@
 import React from "react";
-import { useTextFieldState } from "../state/CustomHooks";
+import { useTextFieldState } from "../../state/CustomHooks";
 export default function CharacterCounter() {
   const { text } = useTextFieldState();
 

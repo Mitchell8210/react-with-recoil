@@ -1,5 +1,5 @@
 import React from "react";
-import ListContainer from "./components/ListContainer";
+import ListsContainer from "./components/ListsContainer";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 
@@ -19,7 +19,7 @@ export default function MyLists() {
           <Linked>Go Back</Linked>
         </Link>
       </div>
-      <ListContainer />
+      <ListsContainer />
     </div>
   );
 }

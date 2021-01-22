@@ -1,9 +1,6 @@
 import React from "react";
 import logo from "../../logo.svg";
 import "../../App.css";
-// import CharacterCounter from "../../components/CharacterCounter";
-// import TextField from "../../components/TextField";
-// import ToDoItems from "../../components/ToDoItems";
 import styled from "styled-components";
 import { Link } from "@reach/router";
 
@@ -52,9 +49,6 @@ const Home = () => {
             <Linked>New Paths to explore...</Linked>
           </Link>
         </div>
-        {/* <CharacterCounter />
-        <TextField />
-        <ToDoItems /> */}
       </div>
     </header>
   );

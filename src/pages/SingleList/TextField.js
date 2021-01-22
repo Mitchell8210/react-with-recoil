@@ -1,5 +1,5 @@
 import React from "react";
-import { useTextFieldState, useListItemState } from "../state/CustomHooks";
+import { useTextFieldState, useListItemState } from "../../state/CustomHooks";
 
 const styles = {
   textArea: {
@@ -17,7 +17,7 @@ const styles = {
   },
 };
 
-export default function TextField() {
+export default function TextField({ listId }) {
   const { createItem } = useListItemState();
   const { text, setText } = useTextFieldState();
 
@@ -39,7 +39,7 @@ export default function TextField() {
         />
         <button
           onClick={() => {
-            createItem(text);
+            createItem(text, listId);
             setText("");
           }}
           style={styles.button}

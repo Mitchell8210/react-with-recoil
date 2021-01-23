@@ -9,13 +9,19 @@ const styles = {
 };
 
 export default function ToDoItems({ items }) {
+  const filteredItems = items.filter((item) => item.completed !== true);
   return (
     <div style={styles.items}>
       <h1>To do list</h1>
-      {items.length > 0 &&
-        items.map((item, index) => (
+      {filteredItems.length > 0 &&
+        filteredItems.map((item, index) => (
           <div key={`list-item ${index + 1}`}>
-            <SingleItem text={item.text} index={index + 1} id={item.id} />
+            <SingleItem
+              text={item.text}
+              index={index + 1}
+              id={item.id}
+              completed={item.completed}
+            />
           </div>
         ))}
     </div>

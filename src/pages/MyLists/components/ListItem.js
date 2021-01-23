@@ -12,9 +12,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 5;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const Text = styled.div`
@@ -33,15 +30,35 @@ const DeleteButton = styled.button`
   }
 `;
 
+const ViewButton = styled.button`
+  background: orange;
+  border: 1px solid white;
+  color: black;
+  font-size: 18px;
+  margin: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+`;
+
 export default function ListItem(props) {
   const navigate = useNavigate();
   const { item } = props;
   const { deleteList } = useListState();
 
   return (
-    <Container onClick={() => navigate(`/single-list/${item.id}`)}>
+    <Container>
       <Text>{item.title}</Text>
-      <DeleteButton onClick={() => deleteList(item.id)}>Delete</DeleteButton>
+      <ButtonGroup>
+        <ViewButton onClick={() => navigate(`/single-list/${item.id}`)}>
+          View
+        </ViewButton>
+        <DeleteButton onClick={() => deleteList(item.id)}>Delete</DeleteButton>
+      </ButtonGroup>
     </Container>
   );
 }

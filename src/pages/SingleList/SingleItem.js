@@ -17,19 +17,31 @@ const styles = {
     border: "1px solid white",
     color: "black",
   },
+  completeButton: {
+    background: "green",
+    border: "1px solid white",
+    color: "black",
+  },
 };
 
-export default function SingleItem({ text, index, id }) {
-  const { deleteItem } = useListItemState();
+export default function SingleItem({ text, index, id, completed }) {
+  const { deleteItem, completeItem } = useListItemState();
 
   return (
     <div style={styles.item}>
       <div>
         {index}. {text}
       </div>
-      <button style={styles.deleteButton} onClick={() => deleteItem(id)}>
-        Delete
-      </button>
+      {completed && (
+        <button style={styles.deleteButton} onClick={() => deleteItem(id)}>
+          Delete
+        </button>
+      )}
+      {!completed && (
+        <button style={styles.completeButton} onClick={() => completeItem(id)}>
+          Mark Complete
+        </button>
+      )}
     </div>
   );
 }

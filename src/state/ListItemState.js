@@ -28,9 +28,11 @@ const useListItemState = () => {
   };
 
   const completeItem = (id) => {
-    const itemToComplete = items.find((item) => item.id === id);
-    itemToComplete.completed = true;
-    setItems((items) => [...items, itemToComplete]);
+    let itemToComplete = items.find((item) => item.id === id);
+    const currentItems = items.filter((item) => item.id !== id);
+    console.log("CURRENT ITEMS", currentItems);
+    itemToComplete = { ...itemToComplete, completed: true };
+    setItems((items) => [...currentItems, itemToComplete]);
   };
 
   return { items, setItems, createItem, completeItem, deleteItem };

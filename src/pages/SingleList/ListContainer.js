@@ -3,6 +3,7 @@ import CharacterCounter from "./CharacterCounter";
 import { useListItemState } from "../../state/CustomHooks";
 import TextField from "./TextField";
 import ToDoItems from "./ToDoItems";
+import CompletedContainer from "./CompletedContainer";
 import styled from "styled-components";
 import { useParams } from "@reach/router";
 
@@ -24,6 +25,7 @@ export default function ListContainer() {
       <CharacterCounter />
       <TextField listId={id} />
       <ToDoItems items={listItems} />
+      <CompletedContainer items={listItems} />
     </Container>
   );
 }
